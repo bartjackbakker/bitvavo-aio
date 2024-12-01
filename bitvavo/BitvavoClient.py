@@ -24,7 +24,7 @@ class BitvavoClient:
     REST_API_URI = "https://api.bitvavo.com/v2/"
     VALIDITY_WINDOW_MS = 5000
 
-    def __init__(
+    async def __init__(
         self, api_key: str = None, sec_key: str = None, api_trace_log: bool = False
     ) -> None:
         """Initialize."""
@@ -33,7 +33,7 @@ class BitvavoClient:
         self.sec_key = sec_key
 
         self.rest_session = None
-        self.ssl_context = ssl.create_default_context()
+        self.ssl_context = await ssl.create_default_context()
 
         self.api_trace_log = api_trace_log
 
